@@ -24,8 +24,10 @@ To rebuild the tracked Colab notebook after changing its setup, run
 
 Use `Baselines.ipynb` for the full comparison. It pins a Git commit for each
 Drive run, prepares the selected subsets and saves resumable training
-checkpoints. Start with FD001 and then run FD002–FD004. The pilot remains
-separate.
+checkpoints. It runs FD001–FD004 by default. To extend an existing run,
+keep its run name, seeds, epochs and other training settings fixed and
+add the missing subsets. Completed models reuse their saved weights.
+The pilot remains separate.
 
 The suite contains the mean predictor, DeepNN, WideNN, RNN, LSTM, GRU,
 BiLSTM, CNN–LSTM, the attention BiLSTM teacher, an output-only distilled
