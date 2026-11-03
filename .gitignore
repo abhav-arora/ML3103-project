@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.env
+CMaps/
+artifacts/
+colab_runs/
+*.npz
+*.pt
+*.partial
