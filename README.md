@@ -20,6 +20,50 @@ and is separate from the final model comparisons.
 To rebuild the tracked Colab notebook after changing its setup, run
 `python build_colab.py` from the repository.
 
+## Baseline experiments
+
+Use `Baselines.ipynb` for the full comparison. It pins a Git commit for each
+Drive run, prepares the selected subsets and saves resumable training
+checkpoints. Start with FD001 and then run FD002–FD004. The pilot remains
+separate.
+
+The suite contains the mean predictor, DeepNN, WideNN, RNN, LSTM, GRU,
+BiLSTM, CNN–LSTM, the attention BiLSTM teacher, an output-only distilled
+small LSTM, a supervised recurrent LIF SNN and a rate-converted DeepNN.
+DeepNN uses four ReLU layers (128, 96, 64, 32). WideNN uses one 256-unit
+ReLU layer. The spiking baseline uses direct input current, fixed leak
+and threshold, and a fast-sigmoid surrogate gradient. ANN-to-SNN
+conversion reuses the selected DeepNN and calibrates thresholds using
+training activations only. Its default is 32 simulation steps.
+
+All neural fits use the same engine splits, 30-cycle inputs, batch size
+128, Adam at 0.001, 30 epochs and seeds 42, 43 and 44 by default. The
+teacher is trained first and frozen for output-only distillation. The
+student minimizes equally weighted ground-truth and teacher-output MSE.
+The mean predictor and converted model have no separate optimizer.
+Model size and total compute can differ despite the common epoch budget.
+
+Training targets are capped RUL divided by the configured cap. Before
+scoring, the runner multiplies predictions by that cap to restore cycles.
+It uses the same predictions for capped and uncapped comparisons, with
+no prediction clipping. Validation checkpoint selection uses capped RMSE.
+The official test phase runs separately after configuration is frozen,
+with one prediction per engine. Report raw official labels as the primary
+test protocol and capped scores separately. MAE/RMSE are in cycles,
+MSE is in cycles squared, and R² can be negative. The asymmetric score
+is summed over engines. Compare it within each subset and target protocol.
+
+Run locally with PyTorch installed:
+
+```powershell
+python run_baselines.py --data-root artifacts/data --output artifacts/baselines --subsets FD001 --phase train
+```
+
+Use the same arguments with `--phase test` only after freezing the
+experiment. JSON summaries include seed mean and sample standard
+deviation. Per-engine prediction CSVs preserve both targets and the
+unclipped prediction for independent metric checks.
+
 ## The 12 steps
 
 | Step | Work | Status |
@@ -29,7 +73,7 @@ To rebuild the tracked Colab notebook after changing its setup, run
 | 3 | Fit train-only feature selection and normalization; operating regimes for FD002/FD004 | Complete |
 | 4 | Build 30-cycle windows, padding masks and reproducible data artifacts | Complete |
 | 5 | Exploratory plots and supervised-training environment setup | Next |
-| 6 | Shared trainer, metrics and conventional baselines | Pending |
+| 6 | Shared trainer, metrics and conventional baselines | Implemented; full sweep pending |
 | 7 | Attention-BiLSTM teacher | Pending |
 | 8 | Recurrent LIF spiking student without distillation | Pending |
 | 9 | Output, membrane-state and attention distillation; sparsity loss | Pending |
