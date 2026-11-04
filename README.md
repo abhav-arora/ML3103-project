@@ -12,10 +12,10 @@ and checkpoints under `MyDrive/ML projec/SpikeDistill-RUL/colab_runs`.
 Each pilot run records its Git commit so a replacement runtime can resume
 with the same source code.
 
-The first milestone is a two-epoch FD001 pilot followed by a checkpoint
-recovery trial in a fresh runtime. GPU execution and Drive recovery are
-pending until that trial runs. The pilot uses capped validation targets
-and is separate from the final model comparisons.
+The two-epoch FD001 pilot ran on a Colab GPU and saved checkpoints to
+Drive. The baseline sweep later resumed after an interruption and finished
+across all four subsets. The pilot uses capped validation targets and is
+separate from the baseline comparison.
 
 To rebuild the tracked Colab notebook after changing its setup, run
 `python build_colab.py` from the repository.
@@ -66,6 +66,38 @@ experiment. JSON summaries include seed mean and sample standard
 deviation. Per-engine prediction CSVs preserve both targets and the
 unclipped prediction for independent metric checks.
 
+## Baseline validation results
+
+The sweep finished on FD001–FD004 with seeds 42, 43, and 44. Drive contains
+all 120 final training checkpoints and epoch histories, plus 144 validation
+metric and prediction pairs. Each trainable run completed 30 epochs. The mean
+predictor and ANN-to-SNN conversion contribute evaluation results without
+separate training loops.
+
+The table reports capped validation RMSE in engine cycles as mean ± sample
+standard deviation across the three seeds. Lower is better. Bold marks the
+lowest mean for each subset. The official test evaluation is pending.
+
+| Model | FD001 | FD002 | FD003 | FD004 |
+|---|---:|---:|---:|---:|
+| Mean predictor | 33.19 ± 0.00 | 33.01 ± 0.00 | 34.82 ± 0.00 | 35.57 ± 0.00 |
+| DeepNN | 13.61 ± 0.18 | 18.28 ± 0.09 | **10.53 ± 1.27** | 14.92 ± 0.14 |
+| WideNN | **13.27 ± 0.13** | **17.58 ± 0.93** | 11.76 ± 0.57 | 14.70 ± 0.89 |
+| RNN | 16.51 ± 0.79 | 19.34 ± 1.13 | 15.71 ± 1.51 | 16.18 ± 0.77 |
+| LSTM | 17.86 ± 0.89 | 18.24 ± 1.48 | 14.84 ± 1.92 | 14.86 ± 0.87 |
+| GRU | 15.02 ± 0.65 | 17.65 ± 0.92 | 12.64 ± 0.59 | 14.23 ± 1.17 |
+| BiLSTM | 16.61 ± 0.97 | 17.59 ± 0.73 | 11.42 ± 0.52 | 20.36 ± 1.12 |
+| CNN–LSTM | 18.38 ± 1.57 | 18.37 ± 0.17 | 15.43 ± 2.18 | 16.22 ± 0.72 |
+| Attention BiLSTM teacher | 14.73 ± 0.71 | 18.07 ± 0.59 | 12.36 ± 0.32 | 18.71 ± 0.69 |
+| Small LSTM with output distillation | 16.86 ± 1.61 | 18.06 ± 0.58 | 14.15 ± 0.23 | **13.41 ± 0.93** |
+| Supervised recurrent LIF SNN | 21.19 ± 2.25 | 20.60 ± 0.60 | 22.97 ± 0.81 | 22.04 ± 1.07 |
+| ANN-to-SNN conversion | 39.10 ± 5.03 | 36.40 ± 8.09 | 26.27 ± 4.32 | 34.61 ± 6.10 |
+
+The [full validation summary](https://drive.google.com/file/d/1g8_gloA6GTzYuzYmOudwr4auW_rng26K/view)
+contains MAE, MSE, RMSE, R² and the C-MAPSS asymmetric score under both capped
+and raw target protocols. The [run folder](https://drive.google.com/drive/folders/1yykVSjciVI8hXerI1dvqoOby2kqvUB4J)
+contains per-engine predictions and epoch reports.
+
 ## The 12 steps
 
 | Step | Work | Status |
@@ -74,12 +106,12 @@ unclipped prediction for independent metric checks.
 | 2 | Create engine-disjoint splits, chronological prefixes and capped/raw RUL labels | Complete |
 | 3 | Fit train-only feature selection and normalization; operating regimes for FD002/FD004 | Complete |
 | 4 | Build 30-cycle windows, padding masks and reproducible data artifacts | Complete |
-| 5 | Exploratory plots and supervised-training environment setup | Next |
-| 6 | Shared trainer, metrics and conventional baselines | Implemented; full sweep pending |
-| 7 | Attention-BiLSTM teacher | Pending |
-| 8 | Recurrent LIF spiking student without distillation | Pending |
+| 5 | Exploratory plots and supervised-training environment setup | Complete: plots, GPU pilot and Drive checkpoints saved |
+| 6 | Shared trainer, metrics and conventional baselines | Complete: four subsets, three seeds and all validation outputs |
+| 7 | Attention-BiLSTM teacher | Complete: trained for every subset and seed |
+| 8 | Recurrent LIF spiking student without distillation | Fixed-parameter baseline complete; learnable leak and threshold pending |
 | 9 | Output, membrane-state and attention distillation; sparsity loss | Pending |
-| 10 | Three-seed comparisons, ablations and explainability | Pending |
+| 10 | Three-seed comparisons, ablations and explainability | Baseline validation comparison complete; student comparison, ablations, explainability and official test pending |
 | 11 | Local benchmarking and actual Jetson measurement if access is obtained | Pending |
 | 12 | Reproducible notebook, eight-page report and ten-slide presentation | Pending |
 
@@ -130,4 +162,4 @@ The supplied FD004 files contain 248 test engines and 248 matching RUL labels. T
 
 Seven tests cover split isolation/reproducibility, training-only scaling, window chronology, target construction, prefix leakage, padding, external test labels and malformed trajectories. All four actual subsets were prepared successfully. These checks verify data preparation, not predictive accuracy.
 
-No model has been trained. PyTorch is not installed in the runtime used for preparation. A training environment and plotting dependencies still need setup. Actual Jetson measurements remain unavailable without device access or an explicitly approved alternative.
+The completed sweep establishes baseline validation results. The official test, proposed spiking student and Jetson measurements remain pending.
