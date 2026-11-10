@@ -1,0 +1,127 @@
+{
+  "config": {
+    "model": "validation_weighted_ensemble",
+    "subset": "FD002",
+    "cap": 125.0,
+    "members": [
+      {
+        "model": "spikedistill",
+        "seed": 42,
+        "selected_epoch": 5,
+        "parameters": 3697,
+        "validation_predictions_sha256": "f9266967ef11d99b5d665d22a0f3e20d41c070ceb06a7395a556f6ca3276e44a",
+        "validation_report_sha256": "682b1f7e42263b25b9b801c7fe77e8c87660ac3c83bd84cd197e89711956c5e9",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD002",
+          "seed": 42,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "c313cde364000b7edf9c51abd52978f92a1e0187d682d890d5906192299b57d9",
+          "train_sha256": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation_sha256": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      },
+      {
+        "model": "spikedistill",
+        "seed": 43,
+        "selected_epoch": 23,
+        "parameters": 3697,
+        "validation_predictions_sha256": "744b83ca4ba415fa2ce8dddcb76b317708ff80613bb22ef018ae7ef704f6c7b4",
+        "validation_report_sha256": "b33a4cce11413548a7afa84cc1cb7e90441c86788ceef872892d39a747dc8847",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD002",
+          "seed": 43,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "a5d0bc587aa281cc1a5ea1b9def9c74bbff6f600cfc7d92304ccc25e311fb07f",
+          "train_sha256": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation_sha256": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      },
+      {
+        "model": "spikedistill",
+        "seed": 44,
+        "selected_epoch": 25,
+        "parameters": 3697,
+        "validation_predictions_sha256": "bf553c138c2ae578f50826c6bcb1196e6ca041a0188710a32d0976dd8ffd9546",
+        "validation_report_sha256": "69acc432064d5553fae9242976d7d1885b07297f31709482653893c032141ae3",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD002",
+          "seed": 44,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "3c616dfd0e40a40934024ee1ffbe58d1a2abe32c3e311eca711af0ce568c965e",
+          "train_sha256": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation_sha256": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      }
+    ],
+    "weights": [
+      0.31786177232034,
+      0.35577905716093244,
+      0.32635917051872754
+    ],
+    "selection": "validation only",
+    "ensemble_plan_sha256": "4dfea71c72cf2c2b3dfce621555cd997298efd6f056a6abf8be684665431ebf2"
+  },
+  "split": "validation",
+  "selected_epoch": null,
+  "parameters": 11091,
+  "capped": {
+    "MAE": 13.389808879251046,
+    "MSE": 285.0922418566386,
+    "RMSE": 16.8846747631288,
+    "R2": 0.6899789219851953,
+    "cmapss_score": 313.92709433854054,
+    "n": 52
+  },
+  "raw": {
+    "MAE": 15.08211657155874,
+    "MSE": 448.8268480919523,
+    "RMSE": 21.185533934549593,
+    "R2": 0.63058922735664,
+    "cmapss_score": 1444.618276963819,
+    "n": 52
+  },
+  "prediction_units": "cycles",
+  "predictions_clipped": false
+}

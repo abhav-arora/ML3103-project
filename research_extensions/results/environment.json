@@ -1,0 +1,25 @@
+{
+  "python": "3.13.17",
+  "torch": "2.15.0+cpu",
+  "numpy": "2.5.4",
+  "device": "cpu",
+  "host_os": "Windows",
+  "cpu_threads": 1,
+  "capacity_coverage": {
+    "subsets": [
+      "FD001"
+    ],
+    "seeds": [
+      42
+    ],
+    "widths": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "epochs": 30
+  },
+  "ensemble_source": "matched ablation full controls, seeds 42-44",
+  "outage_source": "original Colab teacher and student, seed 42"
+}

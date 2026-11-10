@@ -1,0 +1,127 @@
+{
+  "config": {
+    "model": "validation_best_single",
+    "subset": "FD003",
+    "cap": 125.0,
+    "members": [
+      {
+        "model": "spikedistill",
+        "seed": 42,
+        "selected_epoch": 28,
+        "parameters": 3457,
+        "validation_predictions_sha256": "9291fb967b7a48f36f13c7b3c4722200b3abc4a962929156d73ef610c50f63c9",
+        "validation_report_sha256": "dd5267aa0c3345b92a0e2e82416257c59613586196e149a809aa889781eba88d",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD003",
+          "seed": 42,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "7d84ccba6fa7a74c6ec0dd944f010da1f44f89af651b7810ed1afb6e2d76ef45",
+          "train_sha256": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+          "validation_sha256": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      },
+      {
+        "model": "spikedistill",
+        "seed": 43,
+        "selected_epoch": 16,
+        "parameters": 3457,
+        "validation_predictions_sha256": "c8da41c517b6b980d0984b60d44b26c7d1095d19df12e4d362fdb5805ea631d1",
+        "validation_report_sha256": "183864e91075827f2835a375f4b12bcdf5c54292acbf35640901f905af3bd0e3",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD003",
+          "seed": 43,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "58992320b6905e5e6b795f53d5f8154ff53aa5356531b49a8f48c9f9ebd465f2",
+          "train_sha256": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+          "validation_sha256": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      },
+      {
+        "model": "spikedistill",
+        "seed": 44,
+        "selected_epoch": 27,
+        "parameters": 3457,
+        "validation_predictions_sha256": "3acf2c5bc585e470795cb6e212d94854e70f0417c2e4e4eefbb0f56d14f886b4",
+        "validation_report_sha256": "ffb4bd57b166f0be108eae7532838750363915291c45bd67866f2da226c421bd",
+        "config": {
+          "model": "spikedistill",
+          "subset": "FD003",
+          "seed": 44,
+          "epochs": 30,
+          "batch_size": 128,
+          "lr": 0.001,
+          "cap": 125.0,
+          "loss_weights": [
+            0.5,
+            0.5,
+            0.1,
+            0.1,
+            0.01
+          ],
+          "teacher_sha256": "9a664ae69c979916beea5f2079dfe2b372ca433fae89fbeb47e39bacf0e64fcc",
+          "train_sha256": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+          "validation_sha256": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+          "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+          "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+          "prepared_data_check": "hash or saved teacher validation prediction parity"
+        }
+      }
+    ],
+    "weights": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "selection": "validation only",
+    "ensemble_plan_sha256": "355b0f7759be7dc4f9b461d876662847118aa3eb3a45750ebf2bde50ce80f7b8"
+  },
+  "split": "validation",
+  "selected_epoch": null,
+  "parameters": 3457,
+  "capped": {
+    "MAE": 13.324518704414368,
+    "MSE": 238.53176015325766,
+    "RMSE": 15.444473450178146,
+    "R2": 0.7822443102096405,
+    "cmapss_score": 81.18126558974669,
+    "n": 20
+  },
+  "raw": {
+    "MAE": 15.546185874938965,
+    "MSE": 313.003277525389,
+    "RMSE": 17.691898641055715,
+    "R2": 0.7713568858656287,
+    "cmapss_score": 96.85604042472255,
+    "n": 20
+  },
+  "prediction_units": "cycles",
+  "predictions_clipped": false
+}

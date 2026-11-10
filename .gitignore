@@ -12,3 +12,4 @@ colab_runs/
 !models/baselines/FD00[1-4]/seed_42/attention_bilstm/epoch_*.pt
 !models/students/FD00[1-4]/seed_42/spikedistill/epoch_*.pt
 !deployment/jetson/onnx/test_vectors.npz
+!research_extensions/models/student_capacity/FD001/seed_42/spikedistill_w*/epoch_*.pt

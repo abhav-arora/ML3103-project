@@ -1,0 +1,112 @@
+{
+  "identity": {
+    "subset": "FD001",
+    "cap": 125.0,
+    "train": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+    "validation": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045"
+  },
+  "members": [
+    {
+      "model": "spikedistill",
+      "seed": 42,
+      "selected_epoch": 27,
+      "parameters": 3409,
+      "validation_predictions_sha256": "0b771bd472ff2f80299284fa9b28040a054dbc26d1dd5e4edd23d073400aadc3",
+      "validation_report_sha256": "3e31e3f107a71af54564792bf175211182f6971ee8f5ec6a4233eb82fce65c83",
+      "config": {
+        "model": "spikedistill",
+        "subset": "FD001",
+        "seed": 42,
+        "epochs": 30,
+        "batch_size": 128,
+        "lr": 0.001,
+        "cap": 125.0,
+        "loss_weights": [
+          0.5,
+          0.5,
+          0.1,
+          0.1,
+          0.01
+        ],
+        "teacher_sha256": "f78df888cfc02653c4b55ed55b168bf1d9afabaa2340c3e566417d222a2e3ac2",
+        "train_sha256": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation_sha256": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+        "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+        "prepared_data_check": "hash or saved teacher validation prediction parity"
+      }
+    },
+    {
+      "model": "spikedistill",
+      "seed": 43,
+      "selected_epoch": 26,
+      "parameters": 3409,
+      "validation_predictions_sha256": "8542849a3c2af185c0c3397bda190f65a44333d54e7284b4e5fbf47912138879",
+      "validation_report_sha256": "32037ea559ecac331eb229d03c2c77e6b248189f1b2d4a5a00ec557af53cd5ae",
+      "config": {
+        "model": "spikedistill",
+        "subset": "FD001",
+        "seed": 43,
+        "epochs": 30,
+        "batch_size": 128,
+        "lr": 0.001,
+        "cap": 125.0,
+        "loss_weights": [
+          0.5,
+          0.5,
+          0.1,
+          0.1,
+          0.01
+        ],
+        "teacher_sha256": "2cd57a3e2534087fbed3bf535b58071aac1c35cf5d627dbb91aeed01bf68f0e0",
+        "train_sha256": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation_sha256": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+        "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+        "prepared_data_check": "hash or saved teacher validation prediction parity"
+      }
+    },
+    {
+      "model": "spikedistill",
+      "seed": 44,
+      "selected_epoch": 23,
+      "parameters": 3409,
+      "validation_predictions_sha256": "7f7647caf71c6ccbe1c2096d954cb2c70c6806d7db850d5b8515916c4e77e1d8",
+      "validation_report_sha256": "78400d086a1dc92203a809e7c726137ccf50d7def7dda7a76a2b105dc2d5de0e",
+      "config": {
+        "model": "spikedistill",
+        "subset": "FD001",
+        "seed": 44,
+        "epochs": 30,
+        "batch_size": 128,
+        "lr": 0.001,
+        "cap": 125.0,
+        "loss_weights": [
+          0.5,
+          0.5,
+          0.1,
+          0.1,
+          0.01
+        ],
+        "teacher_sha256": "ec1457e98cb335d96317a5e9800066558dc2f04be5aef33563c0febebb6757a1",
+        "train_sha256": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation_sha256": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "code_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+        "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+        "prepared_data_check": "hash or saved teacher validation prediction parity"
+      }
+    }
+  ],
+  "selected_by": "capped validation MSE",
+  "equal_weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "inverse_validation_mse_weights": [
+    0.4046519092080835,
+    0.28621845832630355,
+    0.309129632465613
+  ],
+  "validation_best_index": 0
+}

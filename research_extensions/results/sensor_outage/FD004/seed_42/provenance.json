@@ -1,0 +1,11 @@
+{
+  "subset": "FD004",
+  "seed": 42,
+  "student_checkpoint_sha256": "1fdd795e1a881c63d6ea74ecab3223113af0363ffdc7b62395c74f5cbe94d142",
+  "teacher_checkpoint_sha256": "539f9722f9bd1152acc9b0b54e8cc58a345652fe7ded681354af7720d4d5a825",
+  "test_sha256": "a423b445ece75fc7c4d38b2fabd1131638bf5144e8f49857e6508475beadd3f7",
+  "student_prediction_parity_max_cycles": 3.725290298461914e-05,
+  "protocol": "one sensor replaced by its standardized training mean for the entire observed window",
+  "observed_inputs": "operating settings and validity masks preserved",
+  "tuning": "none"
+}

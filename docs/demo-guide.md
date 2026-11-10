@@ -20,6 +20,11 @@
 2. Open [the deployment folder](../deployment/jetson/README.md). Show the FD001 ONNX model, its inputs and the CPU verification report. The ONNX file accepts a `[1, 30, 18]` window and a `[1, 30]` mask, then returns RUL in cycles. The physical Orin Nano measurements are pending.
 3. Open [the final PDF](SpikeDistill-RUL_Final_Report.pdf). Page 3 has baseline architecture diagrams, page 4 has the teacher-student diagram, and pages 5-8 cover results, ablations, explanations and deployment.
 
+For the additional research, open [Research_Extensions.ipynb](https://colab.research.google.com/github/abhav-arora/ML3103-project/blob/main/research_extensions/notebooks/Research_Extensions.ipynb)
+after the original experiment. It shows the [research questions](../research_extensions/README.md),
+frozen student ensembles, the four-width FD001 experiment and sensor-outage tests.
+The width sweep is a single-seed initial study, and the sensor study uses seed 42.
+
 ## Code map if the TA asks how it works
 
 | Question | File |

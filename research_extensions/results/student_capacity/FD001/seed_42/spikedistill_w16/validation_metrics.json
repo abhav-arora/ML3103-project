@@ -1,0 +1,50 @@
+{
+  "config": {
+    "model": "spikedistill_w16",
+    "subset": "FD001",
+    "seed": 42,
+    "width": 16,
+    "window": 30,
+    "features": 18,
+    "epochs": 30,
+    "batch_size": 128,
+    "lr": 0.001,
+    "cap": 125.0,
+    "loss_weights": [
+      0.5,
+      0.5,
+      0.1,
+      0.1,
+      0.01
+    ],
+    "device": "cpu",
+    "teacher_sha256": "f78df888cfc02653c4b55ed55b168bf1d9afabaa2340c3e566417d222a2e3ac2",
+    "train_sha256": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+    "validation_sha256": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+    "code_sha256": "f99f2cb85c0e182b5d23a51a33c8b968cbd24aefdbb517854f23b33c12b1a982",
+    "model_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8",
+    "trainer_sha256": "410e3246e767f3a88cfcd5e6ebfe18a8a2c7c28f70e600a283bdd11f80f7863b",
+    "parameters": 625
+  },
+  "split": "validation",
+  "selected_epoch": 24,
+  "parameters": 625,
+  "capped": {
+    "MAE": 13.866313637793064,
+    "MSE": 296.87308337011837,
+    "RMSE": 17.230005321244633,
+    "R2": 0.6804818678059595,
+    "cmapss_score": 125.21027960496093,
+    "n": 20
+  },
+  "raw": {
+    "MAE": 13.966313637793064,
+    "MSE": 299.5608471325924,
+    "RMSE": 17.307826181603293,
+    "R2": 0.6815376141088001,
+    "cmapss_score": 125.64326084182723,
+    "n": 20
+  },
+  "prediction_units": "cycles",
+  "predictions_clipped": false
+}

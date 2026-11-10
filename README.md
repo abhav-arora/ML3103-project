@@ -19,6 +19,7 @@ contains the diagrams and experiment discussion.
 | [models](models/) | Original validation-selected seed-42 teacher and student weights for FD001–FD004 |
 | [results](results/) | Official test tables and plots, ablations, validation histories and explanation figures |
 | [deployment/jetson](deployment/jetson/) | ONNX model and tests, TensorRT script and PyTorch board benchmark |
+| [research_extensions](research_extensions/) | Research gaps, ensemble experiments, student-width sweep and sensor-outage evaluation |
 | [docs](docs/) | Model configurations and reproducibility notes |
 | [tests](tests/) | Data, metric, model and checkpoint tests |
 | [tools](tools/) | Pilot notebook generator |
@@ -27,6 +28,12 @@ Start with the [official test results](results/README.md) or the
 [model configuration table](docs/model-configurations.md).
 Raw C-MAPSS files, prepared training arrays and complete epoch-by-epoch
 run archives remain in [Google Drive](https://drive.google.com/drive/folders/1VPsHX0HvLAXKWoisPdk71c_kLW3fuFtX).
+
+The [research extensions](research_extensions/README.md) study three additional
+questions. The [initial results](research_extensions/results/README.md) cover
+three-member student ensembles on FD001–FD004, four student widths on FD001 at
+seed 42, and sensor outages on all four subsets at seed 42. The notebook and
+commands support expanding the study. Coverage and limitations accompany each result.
 
 ## Colab workflow
 
