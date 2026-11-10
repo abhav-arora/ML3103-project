@@ -9,3 +9,6 @@ colab_runs/
 *.npz
 *.pt
 *.partial
+!models/baselines/FD00[1-4]/seed_42/attention_bilstm/epoch_*.pt
+!models/students/FD00[1-4]/seed_42/spikedistill/epoch_*.pt
+!deployment/jetson/onnx/test_vectors.npz

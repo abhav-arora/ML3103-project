@@ -27,6 +27,25 @@ For an explanation run on frozen test checkpoints:
 python -m spikedistill.evaluation.explain --data-root artifacts/data --baselines artifacts/baselines --students artifacts/students
 ```
 
+For the two one-loss ablations, rerun the full student alongside both removals
+on the same runtime. The inference architecture, teacher, data, seed and
+30-epoch budget match within each comparison. Only the named loss weight is
+zeroed. Attention pooling stays in all three students.
+
+```text
+python -m spikedistill.training.distill --data-root artifacts/data --baselines artifacts/baselines --output artifacts/ablations --variants spikedistill spike_no_hidden spike_no_attention
+python -m spikedistill.training.distill --data-root artifacts/data --baselines artifacts/baselines --output artifacts/ablations --variants spikedistill spike_no_hidden spike_no_attention --phase test
+python -m spikedistill.evaluation.ablations --roots artifacts/ablations --output artifacts/ablation_report
+```
+
+If your prepared NPZ files come from a different snapshot of the same official
+data, the original checkpoint byte hashes may differ. Add
+`--verify-prepared-predictions` to training and explanation commands to require
+matching saved teacher validation predictions and exact endpoints when the
+hashes differ. The explanation command additionally checks the saved student
+test predictions. Keep the corresponding prediction CSVs beside their metrics.
+This check establishes numerical agreement on the evaluated windows.
+
 The completed Drive runs store code and data fingerprints. Use the
 [baseline notebook](../notebooks/Baselines.ipynb) with the original
 `baselines_v1/git_revision.txt` for baseline checkpoint recovery. The

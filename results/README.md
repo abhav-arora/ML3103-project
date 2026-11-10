@@ -16,11 +16,17 @@ over engines, so compare it within the same subset and target protocol.
 
 The [comparison notebook](../notebooks/Test_Comparison.ipynb) recomputes the
 tables from frozen predictions. It also produces the
-[RMSE rankings](https://drive.google.com/file/d/1WunQ2A6FAxhCtEY5f4R6HlNNngNPgDhv/view),
-[RAE heatmap](https://drive.google.com/file/d/1Hr5YxVDW7jcdCLjCBAuGoTqhJmXp1vlP/view),
-[student comparison](https://drive.google.com/file/d/18BhegpC1mFKmOxF9SXeuIL_9Yq8tVwWj/view)
-and [residual plots](https://drive.google.com/file/d/1nlTbHICTXBpMfx4bif7wUSQxf83V4GRM/view).
+[RMSE rankings](official_figures/rmse_rankings.pdf),
+[RAE heatmap](official_figures/rae_heatmap.pdf),
+[student comparison](official_figures/student_comparison.pdf)
+and [residual plots](official_figures/residuals.pdf).
 The [Drive comparison folder](https://drive.google.com/drive/folders/1f9AQGvz8me3L7h7ipy5WlOrTC7TrGGkw)
 also has per-engine predictions. Training histories and checkpoints are in
 the [baseline run](https://drive.google.com/drive/folders/1yykVSjciVI8hXerI1dvqoOby2kqvUB4J)
 and [student run](https://drive.google.com/drive/folders/1OPVkcJRBbuDFMgmCZG90m0IWoUEovAfS).
+
+The [ablation summary](ablations/ablation_mean_sd.csv), [per-seed results](ablations/ablation_per_seed.csv)
+and [paired RMSE plot](ablations/ablation_rmse_deltas.png) show the separate hidden-state and
+attention-loss removals. The matched ablation control was retrained and is a separate run
+from the original official comparison above. See the [explanation figures](explanations/),
+[seed-42 spike diagnostics](test_spike_diagnostics_seed42.json) and [data audit](data_audit/audit_summary.json).

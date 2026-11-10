@@ -1,0 +1,5 @@
+deployment/jetson/onnx/test_jetson.sh text eol=lf
+*.pdf binary
+*.onnx binary
+*.pt binary
+*.npz binary

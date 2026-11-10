@@ -1,0 +1,43 @@
+{
+  "config": {
+    "model": "spikedistill",
+    "subset": "FD001",
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 128,
+    "lr": 0.001,
+    "cap": 125.0,
+    "loss_weights": [
+      0.5,
+      0.5,
+      0.1,
+      0.1,
+      0.01
+    ],
+    "teacher_sha256": "f78df888cfc02653c4b55ed55b168bf1d9afabaa2340c3e566417d222a2e3ac2",
+    "train_sha256": "be8e4dba891283e85973942d17d66235f6a2c42d60b5e4303e2d49d47e4dc980",
+    "validation_sha256": "35c0762da87833954856c0cf39f8fc18a69af52a18b76b3d27e4999e3f4e7016",
+    "code_sha256": "69ae00ea000e2994b6081021a172a1e35fdba21776cbf46580e43f95bb481ae6"
+  },
+  "split": "test",
+  "selected_epoch": 14,
+  "parameters": 3409,
+  "capped": {
+    "MAE": 12.460073109939694,
+    "MSE": 252.4934727118473,
+    "RMSE": 15.890043194146681,
+    "R2": 0.8427681781268708,
+    "cmapss_score": 452.1121056764662,
+    "n": 100
+  },
+  "raw": {
+    "MAE": 13.530073109939694,
+    "MSE": 307.92001517395784,
+    "RMSE": 17.547649847599473,
+    "R2": 0.8216889015974582,
+    "cmapss_score": 536.6178197673669,
+    "n": 100
+  },
+  "prediction_units": "cycles",
+  "predictions_clipped": false
+}

@@ -1,0 +1,37 @@
+{
+  "subset": "FD002",
+  "seed": 42,
+  "selected_epoch": 7,
+  "teacher_sha256": "c313cde364000b7edf9c51abd52978f92a1e0187d682d890d5906192299b57d9",
+  "student_data_hash_matches": false,
+  "student_test_prediction_max_difference_cycles": 3.3527612686157227e-05,
+  "test_sha256": "f14cb035af8c3a53a5abaed1e3370dc7a7f192514c195f919c6375722c0c1638",
+  "cases": [
+    {
+      "case": "lowest_error",
+      "engine_id": 252,
+      "true_raw_cycles": 12.0,
+      "predicted_cycles": 12.033915147185326,
+      "absolute_error_cycles": 0.03391514718532562,
+      "shap_reference_cycles": 101.1468734741211,
+      "shap_prediction_cycles": 12.033915519714355,
+      "shap_efficiency_residual_cycles": 0.0,
+      "ig_reference_cycles": 86.67989075183868,
+      "surrogate_ig_residual_cycles": 47.637975201010704,
+      "readout_reconstruction_residual_cycles": -7.450580596923828e-08
+    },
+    {
+      "case": "highest_error",
+      "engine_id": 86,
+      "true_raw_cycles": 194.0,
+      "predicted_cycles": 96.20436280965805,
+      "absolute_error_cycles": 97.79563719034195,
+      "shap_reference_cycles": 99.52821350097656,
+      "shap_prediction_cycles": 96.20436096191406,
+      "shap_efficiency_residual_cycles": 0.0,
+      "ig_reference_cycles": 86.67989075183868,
+      "surrogate_ig_residual_cycles": -6.952582538127899,
+      "readout_reconstruction_residual_cycles": -4.5299530029296875e-06
+    }
+  ]
+}

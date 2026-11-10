@@ -1,0 +1,223 @@
+[
+  {
+    "subset": "FD001",
+    "official_train": {
+      "rows": 20631,
+      "engines": 100,
+      "columns": 26,
+      "cycles_min": 128,
+      "cycles_median": 199.0,
+      "cycles_max": 362,
+      "missing_values": 0
+    },
+    "official_test": {
+      "rows": 13096,
+      "engines": 100,
+      "columns": 26,
+      "cycles_min": 31,
+      "cycles_median": 133.5,
+      "cycles_max": 303,
+      "missing_values": 0
+    },
+    "training_engines": 80,
+    "validation_engines": 20,
+    "features": 18,
+    "dropped_sensors": [
+      "sensor_01",
+      "sensor_05",
+      "sensor_10",
+      "sensor_16",
+      "sensor_18",
+      "sensor_19"
+    ],
+    "normalization": "global-training-only",
+    "arrays": {
+      "train": {
+        "shape": [
+          14459,
+          30,
+          18
+        ],
+        "padded_windows": 0
+      },
+      "validation": {
+        "shape": [
+          20,
+          30,
+          18
+        ],
+        "padded_windows": 0
+      },
+      "test": {
+        "shape": [
+          100,
+          30,
+          18
+        ],
+        "padded_windows": 0
+      }
+    }
+  },
+  {
+    "subset": "FD002",
+    "official_train": {
+      "rows": 53759,
+      "engines": 260,
+      "columns": 26,
+      "cycles_min": 128,
+      "cycles_median": 199.0,
+      "cycles_max": 378,
+      "missing_values": 0
+    },
+    "official_test": {
+      "rows": 33991,
+      "engines": 259,
+      "columns": 26,
+      "cycles_min": 21,
+      "cycles_median": 132.0,
+      "cycles_max": 367,
+      "missing_values": 0
+    },
+    "training_engines": 208,
+    "validation_engines": 52,
+    "features": 24,
+    "dropped_sensors": [],
+    "normalization": "condition-aware",
+    "arrays": {
+      "train": {
+        "shape": [
+          37051,
+          30,
+          24
+        ],
+        "padded_windows": 0
+      },
+      "validation": {
+        "shape": [
+          52,
+          30,
+          24
+        ],
+        "padded_windows": 0
+      },
+      "test": {
+        "shape": [
+          259,
+          30,
+          24
+        ],
+        "padded_windows": 6
+      }
+    }
+  },
+  {
+    "subset": "FD003",
+    "official_train": {
+      "rows": 24720,
+      "engines": 100,
+      "columns": 26,
+      "cycles_min": 145,
+      "cycles_median": 220.5,
+      "cycles_max": 525,
+      "missing_values": 0
+    },
+    "official_test": {
+      "rows": 16596,
+      "engines": 100,
+      "columns": 26,
+      "cycles_min": 38,
+      "cycles_median": 148.0,
+      "cycles_max": 475,
+      "missing_values": 0
+    },
+    "training_engines": 80,
+    "validation_engines": 20,
+    "features": 19,
+    "dropped_sensors": [
+      "sensor_01",
+      "sensor_05",
+      "sensor_16",
+      "sensor_18",
+      "sensor_19"
+    ],
+    "normalization": "global-training-only",
+    "arrays": {
+      "train": {
+        "shape": [
+          17754,
+          30,
+          19
+        ],
+        "padded_windows": 0
+      },
+      "validation": {
+        "shape": [
+          20,
+          30,
+          19
+        ],
+        "padded_windows": 0
+      },
+      "test": {
+        "shape": [
+          100,
+          30,
+          19
+        ],
+        "padded_windows": 0
+      }
+    }
+  },
+  {
+    "subset": "FD004",
+    "official_train": {
+      "rows": 61249,
+      "engines": 249,
+      "columns": 26,
+      "cycles_min": 128,
+      "cycles_median": 234.0,
+      "cycles_max": 543,
+      "missing_values": 0
+    },
+    "official_test": {
+      "rows": 41214,
+      "engines": 248,
+      "columns": 26,
+      "cycles_min": 19,
+      "cycles_median": 153.5,
+      "cycles_max": 486,
+      "missing_values": 0
+    },
+    "training_engines": 199,
+    "validation_engines": 50,
+    "features": 24,
+    "dropped_sensors": [],
+    "normalization": "condition-aware",
+    "arrays": {
+      "train": {
+        "shape": [
+          42960,
+          30,
+          24
+        ],
+        "padded_windows": 0
+      },
+      "validation": {
+        "shape": [
+          50,
+          30,
+          24
+        ],
+        "padded_windows": 0
+      },
+      "test": {
+        "shape": [
+          248,
+          30,
+          24
+        ],
+        "padded_windows": 11
+      }
+    }
+  }
+]

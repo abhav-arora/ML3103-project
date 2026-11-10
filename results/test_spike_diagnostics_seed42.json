@@ -1,0 +1,30 @@
+{
+  "FD001": {
+    "engines": 100,
+    "mean_valid_steps": 30.0,
+    "rate": 0.2373611111111111,
+    "synops": 15834.24,
+    "parameters": 3409
+  },
+  "FD002": {
+    "engines": 259,
+    "mean_valid_steps": 29.88030888030888,
+    "rate": 0.20730768402463712,
+    "synops": 13748.942084942086,
+    "parameters": 3697
+  },
+  "FD003": {
+    "engines": 100,
+    "mean_valid_steps": 30.0,
+    "rate": 0.22419444444444445,
+    "synops": 14937.6,
+    "parameters": 3457
+  },
+  "FD004": {
+    "engines": 248,
+    "mean_valid_steps": 29.717741935483872,
+    "rate": 0.19665875169606514,
+    "synops": 12990.387096774193,
+    "parameters": 3697
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "config": {
+    "model": "attention_bilstm",
+    "subset": "FD001",
+    "seed": 42,
+    "window": 30,
+    "features": 18,
+    "epochs": 30,
+    "batch_size": 128,
+    "lr": 0.001,
+    "cap": 125.0,
+    "conversion_steps": 32,
+    "training_target": "capped_rul_divided_by_cap",
+    "selection": "minimum_capped_validation_rmse",
+    "source_sha256": {
+      "train.npz": "be8e4dba891283e85973942d17d66235f6a2c42d60b5e4303e2d49d47e4dc980",
+      "validation.npz": "35c0762da87833954856c0cf39f8fc18a69af52a18b76b3d27e4999e3f4e7016",
+      "preprocessing.json": "04dd7d757f68a08e394e6ffe8522ae68df6aa9e49d3d228cedadd314b3f76912",
+      "split_manifest.json": "5caf5b4393ea9e0d55161bd14dcbdd9f69d6bb539d3272c616801c26618f3fc7",
+      "run_baselines.py": "0312ba7f372f5c4b66ff99b86a8c71fa8a6d386b65599e14b40b6d0f6a1ce050",
+      "baseline_models.py": "afbb7bf6d8afeb65ed41a1424f66b3265e9f66d2176b8e1e1888508432c5ac40",
+      "metrics.py": "56035af306d90b4e61e71364f670eff3fe8c4673b2121920c803ebed1d7c6272",
+      "train_pilot.py": "d2c461b209f223f8258e8801804e53474a8874e2846b2a369f71e3632acd8258"
+    }
+  },
+  "split": "validation",
+  "selected_epoch": 3,
+  "parameters": 30914,
+  "capped": {
+    "MAE": 11.613031850755215,
+    "MSE": 232.13723100102547,
+    "RMSE": 15.23605037406432,
+    "R2": 0.7501556772337215,
+    "cmapss_score": 115.6593408773356,
+    "n": 20
+  },
+  "raw": {
+    "MAE": 11.713031850755215,
+    "MSE": 234.9488889781297,
+    "RMSE": 15.328042568381969,
+    "R2": 0.7502264249061102,
+    "cmapss_score": 116.11345385438165,
+    "n": 20
+  },
+  "prediction_units": "cycles",
+  "predictions_clipped": false
+}

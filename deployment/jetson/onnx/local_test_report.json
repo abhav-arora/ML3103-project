@@ -1,0 +1,31 @@
+{
+  "provider": "CPUExecutionProvider",
+  "onnxruntime": "1.31.1",
+  "official_test_cases": 100,
+  "extra_mask_cases": 1,
+  "max_absolute_difference_cycles": 4.57763671875e-05,
+  "tolerance_cycles": 0.001,
+  "raw": {
+    "MAE": 13.530073041915893,
+    "MSE": 307.91997138254607,
+    "RMSE": 17.54764859981377,
+    "R2": 0.8216889269562994,
+    "RAE_pct": 36.79930220934934,
+    "cmapss_score": 536.6176068817082
+  },
+  "capped": {
+    "MAE": 12.460073041915894,
+    "MSE": 252.4934377216574,
+    "RMSE": 15.890042093136739,
+    "R2": 0.8427681999158353,
+    "RAE_pct": 34.759039925003194,
+    "cmapss_score": 452.11197386403995
+  },
+  "cpu_latency_ms": {
+    "warmup": 100,
+    "measured": 1000,
+    "median": 0.7202500000000001,
+    "p95": 1.2257799999999999,
+    "p99": 1.6678009999999999
+  }
+}

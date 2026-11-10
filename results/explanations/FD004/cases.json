@@ -1,0 +1,37 @@
+{
+  "subset": "FD004",
+  "seed": 42,
+  "selected_epoch": 21,
+  "teacher_sha256": "539f9722f9bd1152acc9b0b54e8cc58a345652fe7ded681354af7720d4d5a825",
+  "student_data_hash_matches": false,
+  "student_test_prediction_max_difference_cycles": 3.725290298461914e-05,
+  "test_sha256": "a423b445ece75fc7c4d38b2fabd1131638bf5144e8f49857e6508475beadd3f7",
+  "cases": [
+    {
+      "case": "lowest_error",
+      "engine_id": 151,
+      "true_raw_cycles": 31.0,
+      "predicted_cycles": 31.06820024549961,
+      "absolute_error_cycles": 0.0682002454996109,
+      "shap_reference_cycles": 104.50788879394531,
+      "shap_prediction_cycles": 31.068201065063477,
+      "shap_efficiency_residual_cycles": 0.0,
+      "ig_reference_cycles": 106.52946680784225,
+      "surrogate_ig_residual_cycles": -33.76484017074108,
+      "readout_reconstruction_residual_cycles": -9.626150131225586e-06
+    },
+    {
+      "case": "highest_error",
+      "engine_id": 54,
+      "true_raw_cycles": 176.0,
+      "predicted_cycles": 100.20140558481216,
+      "absolute_error_cycles": 75.79859441518784,
+      "shap_reference_cycles": 109.37738800048828,
+      "shap_prediction_cycles": 100.20140838623047,
+      "shap_efficiency_residual_cycles": 0.0,
+      "ig_reference_cycles": 106.52946680784225,
+      "surrogate_ig_residual_cycles": 18.76138198375702,
+      "readout_reconstruction_residual_cycles": -1.6391277313232422e-07
+    }
+  ]
+}
