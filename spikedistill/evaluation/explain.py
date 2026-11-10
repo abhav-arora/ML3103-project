@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-from distill import Student, teacher_for
-from run_baselines import batches, predict_cycles, read_split
-from train_pilot import digest
+from spikedistill.training.distill import Student, teacher_for
+from spikedistill.training.baselines import batches, predict_cycles, read_split
+from spikedistill.training.pilot import digest
 
 
 def integrated_gradients(model, x, mask, cap, steps=64):

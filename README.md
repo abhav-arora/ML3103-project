@@ -1,11 +1,29 @@
-# SpikeDistill-RUL: implementation roadmap
+# SpikeDistill-RUL
 
-GitHub is the source of truth for project code and notebooks. The original
-C-MAPSS data and experiment outputs are stored separately in Google Drive.
+Predict turbofan remaining useful life from 30-cycle NASA C-MAPSS sensor
+windows. The project compares recurrent, feed-forward and spiking baselines
+with a recurrent spiking student distilled from an attention BiLSTM.
+
+| Folder | Contents |
+|---|---|
+| [spikedistill/data](spikedistill/data/) | C-MAPSS audit, engine splits, normalization and windowing |
+| [spikedistill/models](spikedistill/models/) | Baseline architectures, attention teacher and learnable LIF student |
+| [spikedistill/training](spikedistill/training/) | Pilot, baseline and student training, checkpoint selection and held-out scoring |
+| [spikedistill/evaluation](spikedistill/evaluation/) | Regression metrics and student explanation methods |
+| [notebooks](notebooks/) | Colab entry points for the pilot, baselines, distillation and final comparison |
+| [results](results/) | Official test tables, metric definitions and links to figures and run artifacts |
+| [docs](docs/) | Model configurations and reproducibility notes |
+| [tests](tests/) | Data, metric, model and checkpoint tests |
+| [tools](tools/) | Pilot notebook generator |
+
+Start with the [official test results](results/README.md) or the
+[model configuration table](docs/model-configurations.md).
+Original C-MAPSS files, checkpoints, per-engine predictions and large
+figures are stored separately in [Google Drive](https://drive.google.com/drive/folders/1VPsHX0HvLAXKWoisPdk71c_kLW3fuFtX).
 
 ## Colab workflow
 
-Open `ML_project.ipynb` in Colab, select an available GPU and run the cells
+Open [the pilot notebook](notebooks/ML_project.ipynb) in Colab, select an available GPU and run the cells
 in order. The notebook clones this repository and mounts Drive using your
 Google account. It expects `MyDrive/ML projec/CMaps` and saves logs, plots,
 and checkpoints under `MyDrive/ML projec/SpikeDistill-RUL/colab_runs`.
@@ -18,11 +36,11 @@ across all four subsets. The pilot uses capped validation targets and is
 separate from the baseline comparison.
 
 To rebuild the tracked Colab notebook after changing its setup, run
-`python build_colab.py` from the repository.
+`python tools/build_colab.py` from the repository.
 
 ## Baseline experiments
 
-Use `Baselines.ipynb` for the full comparison. It pins a Git commit for each
+Use [the baseline notebook](notebooks/Baselines.ipynb) for training. It pins a Git commit for each
 Drive run, prepares the selected subsets and saves resumable training
 checkpoints. It runs FD001–FD004 by default. To extend an existing run,
 keep its run name, seeds, epochs and other training settings fixed and
@@ -58,7 +76,7 @@ is summed over engines. Compare it within each subset and target protocol.
 Run locally with PyTorch installed:
 
 ```powershell
-python run_baselines.py --data-root artifacts/data --output artifacts/baselines --subsets FD001 --phase train
+python -m spikedistill.training.baselines --data-root artifacts/data --output artifacts/baselines --subsets FD001 --phase train
 ```
 
 Use the same arguments with `--phase test` only after freezing the
@@ -76,7 +94,8 @@ separate training loops.
 
 The table reports capped validation RMSE in engine cycles as mean ± sample
 standard deviation across the three seeds. Lower is better. Bold marks the
-lowest mean for each subset. The official test evaluation is pending.
+lowest mean for each subset. The completed [official test results](results/README.md)
+include these baselines and the four spiking student variants.
 
 | Model | FD001 | FD002 | FD003 | FD004 |
 |---|---:|---:|---:|---:|
@@ -109,9 +128,9 @@ contains per-engine predictions and epoch reports.
 | 5 | Exploratory plots and supervised-training environment setup | Complete: plots, GPU pilot and Drive checkpoints saved |
 | 6 | Shared trainer, metrics and conventional baselines | Complete: four subsets, three seeds and all validation outputs |
 | 7 | Attention-BiLSTM teacher | Complete: trained for every subset and seed |
-| 8 | Recurrent LIF spiking student without distillation | Fixed-parameter baseline complete; learnable leak and threshold pending |
-| 9 | Output, membrane-state and attention distillation; sparsity loss | Pending |
-| 10 | Three-seed comparisons, ablations and explainability | Baseline validation comparison complete; student comparison, ablations, explainability and official test pending |
+| 8 | Recurrent LIF spiking student without distillation | Complete: fixed and learnable variants trained and evaluated |
+| 9 | Output, membrane-state and attention distillation; sparsity loss | Complete: four student variants trained across all subsets and seeds |
+| 10 | Three-seed comparisons, ablations and explainability | Official test comparison complete; separate hidden/attention ablations and explanation figures pending |
 | 11 | Local benchmarking and actual Jetson measurement if access is obtained | Pending |
 | 12 | Reproducible notebook, eight-page report and ten-slide presentation | Pending |
 
@@ -121,11 +140,12 @@ Use Python with the packages in requirements-data.txt. The development runtime a
 From this directory:
 
 ```powershell
-python -m unittest -v test_prepare_data
-python prepare_data.py --data-dir '..\CMaps'
+python -m unittest -v tests.test_prepare_data tests.test_metrics
+python -m spikedistill.data.prepare --data-dir '..\CMaps'
 ```
 
-Open Project.ipynb for an executed walkthrough. For FD001 only, append --subsets FD001.
+Open [the data preparation walkthrough](notebooks/Project.ipynb) for an overview.
+For FD001 only, append `--subsets FD001`.
 The default output directory is relative to the current working directory; run from this project directory.
 
 ## Fixed starting protocol
@@ -162,4 +182,6 @@ The supplied FD004 files contain 248 test engines and 248 matching RUL labels. T
 
 Seven tests cover split isolation/reproducibility, training-only scaling, window chronology, target construction, prefix leakage, padding, external test labels and malformed trajectories. All four actual subsets were prepared successfully. These checks verify data preparation, not predictive accuracy.
 
-The completed sweep establishes baseline validation results. The official test, proposed spiking student and Jetson measurements remain pending.
+The completed sweep includes baseline and spiking-student validation and
+official test results. Jetson measurements and final submission artifacts
+remain pending.

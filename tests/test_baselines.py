@@ -4,8 +4,8 @@ import numpy as np
 import torch
 from torch import nn
 
-from baseline_models import MODELS, ConvertedSNN, calibrate_conversion, make_model
-from run_baselines import batches, predict_cycles
+from spikedistill.models.baselines import MODELS, ConvertedSNN, calibrate_conversion, make_model
+from spikedistill.training.baselines import batches, predict_cycles
 
 
 class BaselineTests(unittest.TestCase):

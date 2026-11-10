@@ -10,7 +10,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from train_pilot import train, load_latest
+from spikedistill.training.pilot import train, load_latest
 
 
 class RecoveryTests(unittest.TestCase):

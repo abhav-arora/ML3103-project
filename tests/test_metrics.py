@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from metrics import regression_metrics
+from spikedistill.evaluation.metrics import regression_metrics
 
 
 class MetricTests(unittest.TestCase):

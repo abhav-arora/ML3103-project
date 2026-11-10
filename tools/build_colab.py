@@ -3,7 +3,7 @@ import ast
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 cells = []
 
 
@@ -113,6 +113,8 @@ else:
 (SESSION_DIR / "git_revision.txt").write_text(revision + "\\n")
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
+legacy = (REPO / "train_pilot.py").is_file()
+pilot_entry = ["train_pilot.py"] if legacy else ["-m", "spikedistill.training.pilot"]
 print("Project commit:", revision)
 ''')
 md('''## 3. Verify dependencies and recovery logic
@@ -122,7 +124,10 @@ synthetic CPU data, including recovery from a corrupt last checkpoint.
 The spiking smoke test checks surrogate backpropagation, learnable leak and threshold
 on the selected device. It is not a trained recurrent SNN or the proposed student.
 ''')
-code('''subprocess.run([sys.executable,"-m","unittest","-v","test_prepare_data","test_metrics","test_training"],
+code('''test_names = ["test_prepare_data", "test_metrics", "test_training"]
+if not legacy:
+    test_names = [f"tests.{name}" for name in test_names]
+subprocess.run([sys.executable,"-m","unittest","-v",*test_names],
                cwd=REPO,check=True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.manual_seed(42)
@@ -162,7 +167,10 @@ if original_manifest.is_file():
     original = json.loads(original_manifest.read_text())
     for prefix in ["train","test","RUL"]:
         assert source_hashes[f"{prefix}_FD001.txt"] == original["sources"][prefix]["sha256"], "Dataset changed since local preparation"
-from prepare_data import prepare_subset, load_trajectories
+if legacy:
+    from prepare_data import prepare_subset, load_trajectories
+else:
+    from spikedistill.data.prepare import prepare_subset, load_trajectories
 DATA_LOCAL = WORK/"prepared"
 audit = prepare_subset(RAW_LOCAL,DATA_LOCAL,"FD001",window=30,cap=125,seed=42)
 DATA_FD001 = DATA_LOCAL/"FD001"
@@ -230,7 +238,7 @@ Re-running this cell resumes an existing compatible run; it does not reset it.
 Do not change its settings while reusing the same run directory.
 ''')
 code('''RUN_DIR = OUTPUT_DRIVE/"fd001_pilot_v1"
-command = [sys.executable,str(REPO/"train_pilot.py"),
+command = [sys.executable,*pilot_entry,
            "--data-dir",str(DATA_FD001),"--run-dir",str(RUN_DIR),
            "--epochs","2","--max-examples","2048","--runtime-id",RUNTIME_ID]
 subprocess.run(command,cwd=REPO,check=True)
@@ -251,7 +259,10 @@ md('''## 8. Stop here and test a real runtime replacement
 Cross-device/version numerical equality is not guaranteed. A restored-prediction
 check failure is a reason to investigate rather than silently restart training.
 ''')
-code('''from train_pilot import load_latest
+code('''if legacy:
+    from train_pilot import load_latest
+else:
+    from spikedistill.training.pilot import load_latest
 checkpoint,checkpoint_path = load_latest(RUN_DIR)
 if checkpoint is None or checkpoint["epoch"] < 2:
     raise RuntimeError("Finish the two-epoch pilot first.")
@@ -302,5 +313,5 @@ notebook = dict(nbformat=4,nbformat_minor=0,cells=cells,
                 metadata=dict(colab=dict(name='ML_project.ipynb',provenance=[]),
                               kernelspec=dict(name='python3',display_name='Python 3'),
                               language_info=dict(name='python'),accelerator='GPU'))
-(ROOT/'ML_project.ipynb').write_text(json.dumps(notebook,indent=2),encoding='utf-8')
+(ROOT/'notebooks'/'ML_project.ipynb').write_text(json.dumps(notebook,indent=2),encoding='utf-8')
 print(f'Built ML_project.ipynb: {len(cells)} cells; all Python cells compile; outputs intentionally empty')

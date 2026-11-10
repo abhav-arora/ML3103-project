@@ -15,7 +15,7 @@ import numpy as np
 import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
-from metrics import regression_metrics
+from spikedistill.evaluation.metrics import regression_metrics
 
 
 class PilotMLP(nn.Module):

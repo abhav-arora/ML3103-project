@@ -10,9 +10,9 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
-from baseline_models import MODELS, ConvertedSNN, calibrate_conversion, make_model
-from metrics import regression_metrics
-from train_pilot import digest, load_latest, restore_rng, rng_state, save_checkpoint
+from spikedistill.models.baselines import MODELS, ConvertedSNN, calibrate_conversion, make_model
+from spikedistill.evaluation.metrics import regression_metrics
+from spikedistill.training.pilot import digest, load_latest, restore_rng, rng_state, save_checkpoint
 
 
 def read_split(directory, split):
@@ -153,8 +153,15 @@ def run(args):
         validation = read_split(data_dir, "validation")
         sources = ("train.npz", "validation.npz", "preprocessing.json", "split_manifest.json")
         fingerprints = {item: digest(data_dir / item) for item in sources}
-        for filename in ("run_baselines.py", "baseline_models.py", "metrics.py", "train_pilot.py"):
-            fingerprints[filename] = digest(Path(__file__).with_name(filename))
+        package = Path(__file__).resolve().parents[1]
+        modules = {
+            "run_baselines.py": "training/baselines.py",
+            "baseline_models.py": "models/baselines.py",
+            "metrics.py": "evaluation/metrics.py",
+            "train_pilot.py": "training/pilot.py",
+        }
+        for filename, relative_path in modules.items():
+            fingerprints[filename] = digest(package / relative_path)
         test = None
         for seed in args.seeds:
             root = args.output / subset / f"seed_{seed}"

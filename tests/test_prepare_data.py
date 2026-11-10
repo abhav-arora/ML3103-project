@@ -2,7 +2,7 @@
 import unittest
 import numpy as np
 import pandas as pd
-from prepare_data import COLUMNS, load_trajectories, split_engines, fit_preprocessor, transform, make_windows, validation_endpoints
+from spikedistill.data.prepare import COLUMNS, load_trajectories, split_engines, fit_preprocessor, transform, make_windows, validation_endpoints
 from io import StringIO
 
 
