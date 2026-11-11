@@ -6,8 +6,8 @@ with a recurrent spiking student distilled from an attention BiLSTM.
 
 **Start here for the presentation.** The [demo guide](docs/demo-guide.md)
 lists the Colab notebooks in order, the exact code to show, and where to find
-the trained models and saved results. The [final report](docs/SpikeDistill-RUL_Final_Report.pdf)
-contains the diagrams and experiment discussion.
+the trained models and saved results. The [submission report](docs/submission/SpikeDistill-RUL%20-%20Project%20Report.pdf)
+and [project poster](docs/submission/Project%20poster.png) are in [docs/submission](docs/submission/).
 
 | Folder | Contents |
 |---|---|
@@ -199,5 +199,4 @@ The supplied FD004 files contain 248 test engines and 248 matching RUL labels. T
 Seven tests cover split isolation/reproducibility, training-only scaling, window chronology, target construction, prefix leakage, padding, external test labels and malformed trajectories. All four actual subsets were prepared successfully. These checks verify data preparation, not predictive accuracy.
 
 The completed sweep includes baseline and spiking-student validation and
-official test results. Jetson measurements and final submission artifacts
-remain pending.
+official test results. Physical Jetson measurements remain pending.
