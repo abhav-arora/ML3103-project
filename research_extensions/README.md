@@ -76,6 +76,8 @@ python -m research_extensions.robustness.run --data-root artifacts/data --baseli
 
 ## Showing and reproducing the work
 
+**Research Models V2.** Open [Research_Models_V2.ipynb](notebooks/Research_Models_V2.ipynb) for the Li-style DCNN and attention BiGRU teachers, three distillation variants, and the matched supervised SNN. See the [V2 protocol and paper references](v2/README.md). V2 writes to a separate Drive folder.
+
 Use [Research_Extensions.ipynb](notebooks/Research_Extensions.ipynb) for the saved displays and optional Colab runs. The [results folder](results/) holds evidence for the local experiments. These results are reported separately from the original experiment in the project report.
 
 Use the evidence to explain which hypothesis was supported, its size or accuracy cost, and which conclusions need more seeds. A successful research extension can reveal that an expected improvement fails.

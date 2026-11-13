@@ -13,7 +13,7 @@ ENDPOINTS = ["engine_id", "end_cycle", "target_capped_cycles", "target_raw_cycle
 METRICS = ["RMSE", "MAE", "MSE", "RAE_pct", "R2", "cmapss_score", "bias_cycles"]
 
 
-def tables(root, subsets, seeds, originals):
+def tables(root, subsets, seeds, originals, teachers=TEACHERS, guidance=GUIDANCE):
     rows, pairs = [], []
     original = pd.read_csv(originals)
     original = original[original.target.eq("raw")]
@@ -24,7 +24,7 @@ def tables(root, subsets, seeds, originals):
             for split in ("validation", "test"):
                 predictions = {}
                 expected = None
-                for name in (*TEACHERS, *GUIDANCE):
+                for name in (*teachers, *guidance):
                     path = root / subset / f"seed_{seed}" / name / f"{split}_predictions.csv"
                     frame = pd.read_csv(path).sort_values("engine_id").reset_index(drop=True)
                     if frame.engine_id.duplicated().any() or (split == "test" and len(frame) != count):
@@ -33,7 +33,7 @@ def tables(root, subsets, seeds, originals):
                         pd.testing.assert_frame_equal(frame[ENDPOINTS], expected)
                     expected = frame[ENDPOINTS]
                     predictions[name] = frame.prediction_cycles.to_numpy()
-                predictions["teacher_average"] = (predictions[TEACHERS[0]] + predictions[TEACHERS[1]]) / 2
+                predictions["teacher_average"] = (predictions[teachers[0]] + predictions[teachers[1]]) / 2
                 for target in ("raw", "capped"):
                     y = expected[f"target_{target}_cycles"].to_numpy()
                     scores = {}
@@ -45,7 +45,7 @@ def tables(root, subsets, seeds, originals):
                         scores[name] = metrics["RMSE"]
                         rows.append(dict(subset=subset, seed=seed, split=split, target=target,
                                          model=name, **metrics))
-                    for teacher, student in zip((*TEACHERS, "teacher_average"), tuple(GUIDANCE)[1:]):
+                    for teacher, student in zip((*teachers, "teacher_average"), tuple(guidance)[1:]):
                         pairs.append(dict(subset=subset, seed=seed, split=split, target=target,
                                           teacher=teacher, student=student, teacher_RMSE=scores[teacher],
                                           student_RMSE=scores[student],
@@ -55,8 +55,8 @@ def tables(root, subsets, seeds, originals):
     return pd.DataFrame(rows), pd.DataFrame(pairs), old
 
 
-def report(root, subsets, seeds, originals, display_tables=True):
-    scores, pairs, old = tables(root, subsets, seeds, originals)
+def report(root, subsets, seeds, originals, display_tables=True, teachers=TEACHERS, guidance=GUIDANCE):
+    scores, pairs, old = tables(root, subsets, seeds, originals, teachers, guidance)
     for frame, name in ((scores, "research_metrics"), (pairs, "teacher_student_pairs"), (old, "original_raw_reference")):
         frame.to_csv(root / f"{name}.csv", index=False)
     if display_tables:
