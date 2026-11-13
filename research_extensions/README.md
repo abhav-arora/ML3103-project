@@ -1,5 +1,19 @@
 # Research extensions
 
+## New teachers and distilled SNNs
+
+[Research_Models.ipynb](notebooks/Research_Models.ipynb) compares a dilated temporal CNN and a GRU with recurrent memory. Both teachers process the same 30-cycle input and concatenate the latest observed sensor reading into the prediction head. The 64-neuron SNN has matched supervised, CNN-guided, GRU-guided and jointly guided runs. Joint guidance averages the two frozen teacher predictions. Each guided run uses 60% supervised loss and 40% output-matching loss.
+
+The research question is whether either teacher reduces raw RUL error and whether that improvement transfers to the student. All new runs learn uncapped RUL, scaled by the existing cap for numerical conditioning. This changes the target protocol relative to the original experiments. The comparison between new students controls for the width, training target, optimizer, epoch budget and selection metric. The original results provide a seed-matched reference.
+
+Training and validation use disjoint engines. The two teachers supply soft targets on training windows only. All model selections use raw validation RMSE. The test stage checks the frozen checkpoint manifest before loading the held-out test windows. The notebook reports raw and capped metrics, per-subset teacher–student RMSE differences, and the original baseline RMSEs for the same seed.
+
+The first run covers FD001–FD004 at seed 42. Use a separate output folder to change the seed list, device or training budget. Saved Drive checkpoints support resuming with the same configuration.
+
+The [local CPU results](results/teacher_student/cpu/teacher_student_pairs.csv) show that joint guidance reduced raw test RMSE relative to the matched supervised SNN on all four subsets. The new teachers and CNN-guided student improved on the original FD002 results. On FD001, FD003 and FD004, the new students had higher RMSE than the original SpikeDistill model. The [full metric table](results/teacher_student/cpu/research_metrics.csv) includes every configuration and both target protocols.
+
+[Convolutional RUL prediction](https://escholarship.org/uc/item/5ns8r3fs) · [GRU architecture](https://aclanthology.org/D14-1179/) · [Knowledge distillation](https://arxiv.org/abs/1503.02531)
+
 These experiments extend the assignment's prescribed SpikeDistill architecture with additional questions about prediction stability, student capacity and missing sensors. Their outcomes belong to a separate experimental phase. The ensemble and width-sweep methods have established precedents in machine learning. A contribution from this project is the defined experiment, its controlled protocol and the evidence it produces.
 
 ## 1. Ensemble stability
