@@ -1,0 +1,654 @@
+[
+  {
+    "config": {
+      "model": "temporal_cnn",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 8,
+    "checkpoint_sha256": "b6b2da6a4f48be097f9ebcfe3feb36bdf6971ba5b277f316edb407c10fe0e333"
+  },
+  {
+    "config": {
+      "model": "gru_memory",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 8,
+    "checkpoint_sha256": "3e8523ef57bb598f6fc9eb69d56b9b94dcae7bc7de9f44ae276223a4fc494568"
+  },
+  {
+    "config": {
+      "model": "snn_supervised",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 4,
+    "checkpoint_sha256": "86e079d15fb36f588e54edd05de2240d718af4748b13a6b77965a0e708b449f5"
+  },
+  {
+    "config": {
+      "model": "snn_from_cnn",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "b6b2da6a4f48be097f9ebcfe3feb36bdf6971ba5b277f316edb407c10fe0e333"
+      },
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 17,
+    "checkpoint_sha256": "16a97415b59351404cddd660c0c0d2e41b4d409be33ff36721d2384fb872ab42"
+  },
+  {
+    "config": {
+      "model": "snn_from_gru",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "gru_memory": "3e8523ef57bb598f6fc9eb69d56b9b94dcae7bc7de9f44ae276223a4fc494568"
+      },
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 14,
+    "checkpoint_sha256": "d34adf11d0f0ced7bcc077dd205ad6820be96d7a3056c3989842210de619b133"
+  },
+  {
+    "config": {
+      "model": "snn_from_both",
+      "subset": "FD001",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 18,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "b6b2da6a4f48be097f9ebcfe3feb36bdf6971ba5b277f316edb407c10fe0e333",
+        "gru_memory": "3e8523ef57bb598f6fc9eb69d56b9b94dcae7bc7de9f44ae276223a4fc494568"
+      },
+      "source_sha256": {
+        "train.npz": "e1139dce1245f3d0839eb982440bfa56a50b42b0e22058302c0992acf856dcf7",
+        "validation.npz": "792da802ae5bb423a69d26f82c2c772e859d7def6149ce76348fde4f744a0045",
+        "split_manifest.json": "7488fbbe05c8cb9b3edb92460e706b515c6e903189404145c12122a01f7a0860",
+        "preprocessing.json": "4fcadc9bcd2b2288b967a058de7fe45f768b63753f1e73813e79e8b7cd7b10fd"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 4,
+    "checkpoint_sha256": "aef547ef10eff106c2f72971302797bbd4c61dea295363b545ceff2f24f15f39"
+  },
+  {
+    "config": {
+      "model": "temporal_cnn",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 7,
+    "checkpoint_sha256": "2a9da15f09943d3d74a81120ca5d0db3290e94515fc6e1aea8fca9ad997bac46"
+  },
+  {
+    "config": {
+      "model": "gru_memory",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 7,
+    "checkpoint_sha256": "8a860fbf4c70f3b8edf7b9dca4f4a3eab2d627469c6376ff0d66229435fbf65b"
+  },
+  {
+    "config": {
+      "model": "snn_supervised",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 7,
+    "checkpoint_sha256": "c09822be31892b88940a447bb998cee40cc292476bc1a6ceff4e8d2ce743c322"
+  },
+  {
+    "config": {
+      "model": "snn_from_cnn",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "2a9da15f09943d3d74a81120ca5d0db3290e94515fc6e1aea8fca9ad997bac46"
+      },
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 18,
+    "checkpoint_sha256": "2c700cc762e687ba76544b68cc1a5234f560cbf519761c087a4449b0cf1d4078"
+  },
+  {
+    "config": {
+      "model": "snn_from_gru",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "gru_memory": "8a860fbf4c70f3b8edf7b9dca4f4a3eab2d627469c6376ff0d66229435fbf65b"
+      },
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 14,
+    "checkpoint_sha256": "14e8544d49027ece9054ff7ee23fca92f52db6557e8fa344a7735272e886f7b9"
+  },
+  {
+    "config": {
+      "model": "snn_from_both",
+      "subset": "FD002",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "2a9da15f09943d3d74a81120ca5d0db3290e94515fc6e1aea8fca9ad997bac46",
+        "gru_memory": "8a860fbf4c70f3b8edf7b9dca4f4a3eab2d627469c6376ff0d66229435fbf65b"
+      },
+      "source_sha256": {
+        "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+        "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+        "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+        "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 19,
+    "checkpoint_sha256": "6347a8fbf48e90bf9ee00bc150148d1032100ed739e6f681df2843259fe98f2f"
+  },
+  {
+    "config": {
+      "model": "temporal_cnn",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 13,
+    "checkpoint_sha256": "aece70c9b76bcd35f1570c06de8b1fdd5d0ce5a6203a54ebc19f4acf5a107a17"
+  },
+  {
+    "config": {
+      "model": "gru_memory",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 16,
+    "checkpoint_sha256": "8177da92f22432007281e2457de7b888868bc37a3744a6a5c154ab950445b6e4"
+  },
+  {
+    "config": {
+      "model": "snn_supervised",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 13,
+    "checkpoint_sha256": "3f061b07a9a5d2b2fdfa1539793e048b0a24aa80ce1cdb0ef8557e25e331aac5"
+  },
+  {
+    "config": {
+      "model": "snn_from_cnn",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "aece70c9b76bcd35f1570c06de8b1fdd5d0ce5a6203a54ebc19f4acf5a107a17"
+      },
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 20,
+    "checkpoint_sha256": "e112cd46fcc0b6860f38d465d52a30208b7dddab5016fc916b8b5119b97a5ddd"
+  },
+  {
+    "config": {
+      "model": "snn_from_gru",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "gru_memory": "8177da92f22432007281e2457de7b888868bc37a3744a6a5c154ab950445b6e4"
+      },
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 7,
+    "checkpoint_sha256": "0c99fc0d2b7ea0f4f37b8316e1e2fb787cfceab7097d256250fd5d0c534d2815"
+  },
+  {
+    "config": {
+      "model": "snn_from_both",
+      "subset": "FD003",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 19,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "aece70c9b76bcd35f1570c06de8b1fdd5d0ce5a6203a54ebc19f4acf5a107a17",
+        "gru_memory": "8177da92f22432007281e2457de7b888868bc37a3744a6a5c154ab950445b6e4"
+      },
+      "source_sha256": {
+        "train.npz": "3b76d40d3a7319cfd8755fe40670a150de5c80642dd340bbf1b4559dca76783e",
+        "validation.npz": "b3ad48de77c23d70b4f35df1df3ba9048e365cd959d36739f13f3b3464808d7e",
+        "split_manifest.json": "6e08ba9abfcad1e2d6e9f66ad29a1b3092211f2a94119cb682bd564ed653a6da",
+        "preprocessing.json": "6a75a8c2cb39ffec80dd47431256b38f3b2291bcd3ac6916c0e6b0a67034ccb6"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 12,
+    "checkpoint_sha256": "869a6f0039cc135873231e4c0129b430702782c2dfb2774416d59ffb3fd5e283"
+  },
+  {
+    "config": {
+      "model": "temporal_cnn",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 9,
+    "checkpoint_sha256": "40d728efcb9461c580fef31d2f952ae15e6941b96a502ae5c651ee471326ad2a"
+  },
+  {
+    "config": {
+      "model": "gru_memory",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 15,
+    "checkpoint_sha256": "2d916b3834453db2238af62b4230cfbec5faab83290448ad9de6f7049d834056"
+  },
+  {
+    "config": {
+      "model": "snn_supervised",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {},
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 9,
+    "checkpoint_sha256": "7e42f7612cb4dac57473984f9532f629f69a0dc601d911a5fb2c3df16a346010"
+  },
+  {
+    "config": {
+      "model": "snn_from_cnn",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "40d728efcb9461c580fef31d2f952ae15e6941b96a502ae5c651ee471326ad2a"
+      },
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 7,
+    "checkpoint_sha256": "bc446bd1ed4e38393d2f56b0d25e527c36f91f578639bc4ffade4ea5ba3bb67c"
+  },
+  {
+    "config": {
+      "model": "snn_from_gru",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "gru_memory": "2d916b3834453db2238af62b4230cfbec5faab83290448ad9de6f7049d834056"
+      },
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 9,
+    "checkpoint_sha256": "bedff785c669f95b11b6a32f8caeff20c311b7093df4d6197fcbe2c7a6c2a865"
+  },
+  {
+    "config": {
+      "model": "snn_from_both",
+      "subset": "FD004",
+      "seed": 42,
+      "cap": 125.0,
+      "epochs": 20,
+      "batch_size": 256,
+      "features": 24,
+      "device": "cuda",
+      "cpu_threads": 2,
+      "selection": "minimum raw validation RMSE",
+      "training_target": "raw RUL divided by cap for scale only",
+      "teachers": {
+        "temporal_cnn": "40d728efcb9461c580fef31d2f952ae15e6941b96a502ae5c651ee471326ad2a",
+        "gru_memory": "2d916b3834453db2238af62b4230cfbec5faab83290448ad9de6f7049d834056"
+      },
+      "source_sha256": {
+        "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+        "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+        "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+        "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+      },
+      "code_sha256": "5c23e57a4476ff932a069f016d96f1351fd3cd55e4f96fafde37e9349888409f",
+      "student_code_sha256": "9f208bf911f6ae1899075f63776d662660b998cd69080b52d1288ab485edabb8"
+    },
+    "selected_epoch": 9,
+    "checkpoint_sha256": "779c4e78f829de0f6a4fdd5f403251872a64c488905112307c2aebf38310f94b"
+  }
+]
