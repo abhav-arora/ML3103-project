@@ -19,3 +19,16 @@ python -m research_extensions.v2.run --data-root artifacts/data --output researc
 ```
 
 Defaults: FD001–FD004, seed 42, 50 teacher epochs, 30 student epochs. Epochs are saved to Drive in Colab. Keep the source, run options and output directory consistent when resuming. A new seed set or training budget should use a fresh output folder.
+
+## Teacher tuning for FD002 and FD004
+
+[Teacher_Tuning_FD002_FD004.ipynb](../notebooks/Teacher_Tuning_FD002_FD004.ipynb) runs a teacher-only experiment with Conv1D, a two-layer bidirectional GRU, and additive attention. The anchor uses the supplied 96 units per direction, dropout 0.25 and a 30-cycle input. The sweep tests longer windows, causal smoothing, hidden width, dropout, learning rate, and training label caps. The long windows and smoothing are intended to help the model track sensor drift across changes in operating condition.
+
+Normalization and operating regime clustering are fitted on training engines only. The smoothing at each cycle uses that cycle and its observed history. Each held-out validation engine contributes up to four observed prefixes at fixed fractions of its trajectory, and the official test contributes one last observed window per engine. Checkpoint and hyperparameter selection minimize uncapped validation RMSE. On test, uncapped RMSE is the primary metric, and capped RMSE uses the project-wide cap of 125 for comparison. Candidate configurations are bundled, so the sweep can identify a useful recipe but cannot isolate the contribution of every change.
+
+```bash
+python -m research_extensions.v2.tune_bigru --data-root /path/to/CMAPSS --output research_runs/bigru_teacher --phase tune
+python -m research_extensions.v2.tune_bigru --data-root /path/to/CMAPSS --output research_runs/bigru_teacher --phase test
+```
+
+The default sweep uses five candidates, 24 epochs each, and seed 42. Use a fresh output directory for a different sweep. Drive-backed Colab checkpoints resume with the same code, runtime and settings.
