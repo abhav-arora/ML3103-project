@@ -1,0 +1,116 @@
+{
+  "winner": "all_teachers",
+  "validation": {
+    "additive_bigru": {
+      "capped_rmse": 15.297177499082643,
+      "raw_rmse": 29.872712944870287
+    },
+    "gru_skip": {
+      "capped_rmse": 14.290975221692351,
+      "raw_rmse": 28.92241397418736
+    },
+    "residual_cnn": {
+      "capped_rmse": 14.571284336437406,
+      "raw_rmse": 29.685674657340517
+    },
+    "additive_bigru+gru_skip": {
+      "capped_rmse": 13.744417402635051,
+      "raw_rmse": 28.88310419632158
+    },
+    "additive_bigru+residual_cnn": {
+      "capped_rmse": 13.940620265806265,
+      "raw_rmse": 29.291415796160827
+    },
+    "gru_skip+residual_cnn": {
+      "capped_rmse": 14.059054040755282,
+      "raw_rmse": 29.124774771636957
+    },
+    "all_teachers": {
+      "capped_rmse": 13.634391463329461,
+      "raw_rmse": 28.966971081615924
+    }
+  },
+  "members": {
+    "additive_bigru": {
+      "config": {
+        "subset": "FD004",
+        "model": "additive_bigru",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 512,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+          "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+          "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+          "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 13,
+      "sha256": "65a57b757295c778098230e3dd2c374103fc0d10b16cfcd40995c7be61a6ee1a"
+    },
+    "gru_skip": {
+      "config": {
+        "subset": "FD004",
+        "model": "gru_skip",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 256,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+          "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+          "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+          "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 4,
+      "sha256": "78fd0f974ea3af5abd1f2ed1133ff490f7118989d76e206edc9d5c1429e89d0b"
+    },
+    "residual_cnn": {
+      "config": {
+        "subset": "FD004",
+        "model": "residual_cnn",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 256,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+          "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+          "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+          "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 6,
+      "sha256": "4a7ffbbe0dbd9a10a11c03385834332f0702239ec66b521c7a4dd465c53ed4c5"
+    }
+  }
+}

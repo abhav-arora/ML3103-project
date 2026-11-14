@@ -1,0 +1,116 @@
+{
+  "winner": "gru_skip",
+  "validation": {
+    "additive_bigru": {
+      "capped_rmse": 18.63136452893967,
+      "raw_rmse": 22.14967657534514
+    },
+    "gru_skip": {
+      "capped_rmse": 17.53773970290942,
+      "raw_rmse": 20.71617785253246
+    },
+    "residual_cnn": {
+      "capped_rmse": 18.62721967360503,
+      "raw_rmse": 21.51229421347659
+    },
+    "additive_bigru+gru_skip": {
+      "capped_rmse": 17.668389989956324,
+      "raw_rmse": 21.088055253949932
+    },
+    "additive_bigru+residual_cnn": {
+      "capped_rmse": 18.05645770779099,
+      "raw_rmse": 21.3466302685821
+    },
+    "gru_skip+residual_cnn": {
+      "capped_rmse": 17.61536145650134,
+      "raw_rmse": 20.71225626260424
+    },
+    "all_teachers": {
+      "capped_rmse": 17.614265510496917,
+      "raw_rmse": 20.90981170881425
+    }
+  },
+  "members": {
+    "additive_bigru": {
+      "config": {
+        "subset": "FD002",
+        "model": "additive_bigru",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 512,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+          "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 7,
+      "sha256": "27fc7e3e359dbadb081d4c402fb21c5e235af539b8c10e40ae684be54d3a4032"
+    },
+    "gru_skip": {
+      "config": {
+        "subset": "FD002",
+        "model": "gru_skip",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 256,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+          "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 7,
+      "sha256": "2b223360913ed0513f550deef6731e57d79c1f31b2ec5f5eb27d63e6255b5a47"
+    },
+    "residual_cnn": {
+      "config": {
+        "subset": "FD002",
+        "model": "residual_cnn",
+        "epochs": 18,
+        "seed": 42,
+        "batch_size": 256,
+        "lr": 0.001,
+        "cap": 125.0,
+        "features": 24,
+        "device": "cpu",
+        "threads": 5,
+        "pytorch": "2.15.0+cpu",
+        "training_target": "baseline capped RUL",
+        "selection": "minimum capped validation RMSE",
+        "source_sha256": {
+          "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+          "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+          "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+          "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+        },
+        "code_sha256": "87c8393a4d87d05a7a6bd51ed4abb54bd368094d3546939a060dfc3352e9220b",
+        "additive_code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693"
+      },
+      "epoch": 12,
+      "sha256": "62d819627cd628b3a952f7ab3867d7146f1eda4ec5fbc9e5dfc0cb15207726d9"
+    }
+  }
+}

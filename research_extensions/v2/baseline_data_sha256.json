@@ -1,0 +1,16 @@
+{
+  "FD002": {
+    "train.npz": "cb9eefab60ef371cbf4393733f2ab6c168f8c524a60ad5ef62ace78fd43a4bde",
+    "validation.npz": "6801b46fac9569862c5590dc64d6b9d44dabc4e63eecd86a803f4ed71a6c29f5",
+    "test.npz": "f14cb035af8c3a53a5abaed1e3370dc7a7f192514c195f919c6375722c0c1638",
+    "split_manifest.json": "0b9c84ba87020e436884b3a3e78142ce395183745855e6e49678d6ab154cdcf8",
+    "preprocessing.json": "ccd0db7a14d9f11e87fcc3fc494dab57204ef74bba16d5419cd1e53d476b54f3"
+  },
+  "FD004": {
+    "train.npz": "31cb0a200d549454e5e2e28c22dfd6dc34a5904aa5667a46383b0f1de4372e0c",
+    "validation.npz": "fdfd28aad974daee5d5255b37ba7727c8ffb2cb300f93ccba6b02c358a46cf5d",
+    "test.npz": "a423b445ece75fc7c4d38b2fabd1131638bf5144e8f49857e6508475beadd3f7",
+    "split_manifest.json": "f52f28ea1e07b206ce87f099311f88051a9f8f20d262158d9872b74c204b7b97",
+    "preprocessing.json": "80ebc0c473ff99c1ffbd369e5cb2fef17158f6c2bae1948e1719863f4448a401"
+  }
+}
