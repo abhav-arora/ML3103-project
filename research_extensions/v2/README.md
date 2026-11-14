@@ -32,3 +32,5 @@ python -m research_extensions.v2.tune_bigru --data-root /path/to/CMAPSS --output
 ```
 
 The default sweep uses five candidates, 24 epochs each, and seed 42. Use a fresh output directory for a different sweep. Drive-backed Colab checkpoints resume with the same code, runtime and settings.
+
+The [completed CPU sweep](../results/additive_bigru_teacher/local/) used three candidates (anchor30, smooth60, raw60), 12 epochs each, and seed 42. FD002 selected smooth60 at epoch 11 and scored 21.61 raw cycles against 28.20 for WideNN and 25.63 for the prior V1 GRU. FD004 selected raw60 at epoch 12 and scored 31.58 raw cycles against 26.29 for the original LSTM and 26.90 for the V2 BiGRU. Keep the original LSTM as the strongest measured FD004 model. Each subset used one seed, and the recipes change multiple settings.

@@ -1,0 +1,50 @@
+[
+  {
+    "config": {
+      "window": 60,
+      "hidden": 96,
+      "dropout": 0.25,
+      "lr": 0.0005,
+      "cap": 145,
+      "smooth": true,
+      "candidate": "smooth60",
+      "subset": "FD002",
+      "seed": 42,
+      "split_seed": 42,
+      "epochs": 12,
+      "batch_size": 256,
+      "source_sha256": "dac6c4dbc4e7c1bdeb5747da3d313d05c395bb99801b44a002b26a2ba13d788f",
+      "code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693",
+      "device": "cpu",
+      "torch_version": "2.15.0+cpu"
+    },
+    "epoch": 11,
+    "rmse": 23.943765465985194,
+    "loss": 0.013010423030544277,
+    "checkpoint_sha256": "19e15ed8c5bfb4329aa5779c8d7d5709afa6c5a4ce6675162177bfdaaff27225"
+  },
+  {
+    "config": {
+      "window": 60,
+      "hidden": 96,
+      "dropout": 0.3,
+      "lr": 0.00035,
+      "cap": null,
+      "smooth": true,
+      "candidate": "raw60",
+      "subset": "FD004",
+      "seed": 42,
+      "split_seed": 42,
+      "epochs": 12,
+      "batch_size": 256,
+      "source_sha256": "27ef6160b6a1dcb2613a88de9c239f763b223f02cdc41dc5cdedc5dc189b6218",
+      "code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693",
+      "device": "cpu",
+      "torch_version": "2.15.0+cpu"
+    },
+    "epoch": 12,
+    "rmse": 39.37768931677268,
+    "loss": 0.08993964463040266,
+    "checkpoint_sha256": "11cac14bd4eae3d9c80b5556cd17e2be1471ad190f956f26a0abae3e058c49ed"
+  }
+]

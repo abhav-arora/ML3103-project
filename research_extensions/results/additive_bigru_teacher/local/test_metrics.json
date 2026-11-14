@@ -1,0 +1,84 @@
+[
+  {
+    "config": {
+      "window": 60,
+      "hidden": 96,
+      "dropout": 0.25,
+      "lr": 0.0005,
+      "cap": 145,
+      "smooth": true,
+      "candidate": "smooth60",
+      "subset": "FD002",
+      "seed": 42,
+      "split_seed": 42,
+      "epochs": 12,
+      "batch_size": 256,
+      "source_sha256": "dac6c4dbc4e7c1bdeb5747da3d313d05c395bb99801b44a002b26a2ba13d788f",
+      "code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693",
+      "device": "cpu",
+      "torch_version": "2.15.0+cpu"
+    },
+    "split": "test",
+    "selected_epoch": 11,
+    "parameters": 300098,
+    "capped": {
+      "MAE": 11.340175874171685,
+      "MSE": 249.28696980316553,
+      "RMSE": 15.788824205847805,
+      "R2": 0.8647957841616707,
+      "cmapss_score": 1755.3493090159548,
+      "n": 259
+    },
+    "raw": {
+      "MAE": 15.080781965829345,
+      "MSE": 466.9513837501015,
+      "RMSE": 21.609057909823406,
+      "R2": 0.8385457260143782,
+      "cmapss_score": 2927.2062010593168,
+      "n": 259
+    },
+    "prediction_units": "cycles",
+    "predictions_clipped": false
+  },
+  {
+    "config": {
+      "window": 60,
+      "hidden": 96,
+      "dropout": 0.3,
+      "lr": 0.00035,
+      "cap": null,
+      "smooth": true,
+      "candidate": "raw60",
+      "subset": "FD004",
+      "seed": 42,
+      "split_seed": 42,
+      "epochs": 12,
+      "batch_size": 256,
+      "source_sha256": "27ef6160b6a1dcb2613a88de9c239f763b223f02cdc41dc5cdedc5dc189b6218",
+      "code_sha256": "adfe4ef234831b2b9fa6cccb9857f5cea4f7b510ba9ecd1eb9b2e67151c19693",
+      "device": "cpu",
+      "torch_version": "2.15.0+cpu"
+    },
+    "split": "test",
+    "selected_epoch": 12,
+    "parameters": 300098,
+    "capped": {
+      "MAE": 25.439638960535728,
+      "MSE": 1552.0210160450463,
+      "RMSE": 39.39569793829075,
+      "R2": 0.15987960020640057,
+      "cmapss_score": 6600530.490378434,
+      "n": 248
+    },
+    "raw": {
+      "MAE": 21.277950892315037,
+      "MSE": 997.0477280146524,
+      "RMSE": 31.57606257934406,
+      "R2": 0.6646148539382224,
+      "cmapss_score": 2633622.720813237,
+      "n": 248
+    },
+    "prediction_units": "cycles",
+    "predictions_clipped": false
+  }
+]
